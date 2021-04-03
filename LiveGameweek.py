@@ -242,7 +242,7 @@ def GetManagerPoints_league(leagueid, gw):
         how ='left',
         left_on = 'index',
         right_on = 'entry',
-        ).drop(columns = ['index', 'entry']).set_index(['entry_name', 'player_name'])
+        ).drop(columns = ['index', 'entry']).set_index(['player_name'])
 
     
     return(league_season2)                   
