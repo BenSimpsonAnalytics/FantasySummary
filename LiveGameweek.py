@@ -49,13 +49,12 @@ st.set_page_config(
 
 config = {'displayModeBar': False}
 #%% Functions
-@st.cache(suppress_st_warning=True, allow_output_mutation=True)
 def BSget(url):
     response = requests.get(url)
     return json.loads(response.content)
 
 
-@st.cache(suppress_st_warning=True)
+
 def BSgetStatic():
     response = BSget('https://fantasy.premierleague.com/api/bootstrap-static/')
     
@@ -79,13 +78,11 @@ def BSgetStatic():
             pivot(columns='chip_name', values='num_played')],
         axis=1)
     return([players_df, events_df])
- 
-@st.cache(suppress_st_warning=True)   
+  
 def GetPlayer1(col):
     return(players_mini[events_df.query('is_current')[col].item() == players_mini['id'].values])
 
- 
-@st.cache(suppress_st_warning=True)   
+   
 def GetPlayer1MD(Name, col):
     ms1 = GetPlayer1(col)
     
@@ -97,8 +94,6 @@ def GetPlayer1MD(Name, col):
     mdimage = 'https://resources.premierleague.com/premierleague/photos/players/110x140/p%s.png' % ms1.code.values[0]
     return([mdtext, mdimage])
 
-
-@st.cache(suppress_st_warning=True) 
 def ChipMD(Name, col):
     tca = events_df.query('finished')[col].mean()
     tcc = events_df.query('is_current')[col].values[0]
@@ -118,8 +113,7 @@ def ChipMD(Name, col):
                    ## %s
                    %s
                    """ % (Name, f'{tcc:,.0f}'))
-  
-@st.cache(suppress_st_warning=True)                    
+                  
 def get_entry_picks(manager_id, gw):
     entry_pick_t = BSget("https://fantasy.premierleague.com/api/entry/%s/event/%s/picks/" % (manager_id, gw))
 
@@ -156,7 +150,6 @@ def player_points_byW(week):
     df['Week'] = week
     return(df)
 
-@st.cache(suppress_st_warning=True) 
 def fixtures_byW(gw):
     fixtures1 = pd.DataFrame(BSget(f'https://fantasy.premierleague.com/api/fixtures/?event={gw}'))
     fixture2 = fixtures1[['id', 'event', 'finished', 'finished_provisional', 'kickoff_time', 'minutes', 'started']]
