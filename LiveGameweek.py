@@ -162,7 +162,7 @@ def fixtures_byW(gw):
     fixture2 = fixtures1[['id', 'event', 'finished', 'finished_provisional', 'kickoff_time', 'minutes', 'started']]
     return(fixture2)  
  
-@st.cache(suppress_st_warning=True)                   
+                 
 def GetManagerPoints(manager_id, gw):
     picks1 = get_entry_picks(manager_id, gw)
 
@@ -222,7 +222,6 @@ def GetManagerPoints(manager_id, gw):
     FinalTable['Top Player Points'] = bigtab3_summary.sort_values('true_points', axis=0, ascending=False).points.values[0]
     return(FinalTable)
 
-@st.cache(suppress_st_warning=True)  
 def GetManagerPoints_league(leagueid, gw):
     league_d = BSget('https://fantasy.premierleague.com/api/leagues-classic/%s/standings' % leagueid)
     league_entries = pd.DataFrame(league_d['standings']['results'])['entry'].unique()
