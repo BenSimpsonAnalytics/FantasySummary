@@ -87,7 +87,7 @@ def BSget_entry_season_league(leagueid):
 st.title("BS Fantasy Football")
 my_expander = st.beta_expander("Data Load", expanded=True)
 with my_expander:
-    league_id = st.text_input('Enter League ID', '236821')
+    league_id = st.text_input('Enter League ID', '605567')
     data_load_state = st.text('Loading data...')
     data_season = BSget_entry_season_league(league_id)
     data_load_state.text('Loading data...done! Check out the %s league' % data_season['LeagueName'].unique()[0])
