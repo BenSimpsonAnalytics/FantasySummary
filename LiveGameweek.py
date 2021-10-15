@@ -299,7 +299,7 @@ points1 = player_points_byW(current_event_id)
 
 my_expander = st.beta_expander("Data Load", expanded=True)
 with my_expander:
-    league_id = st.text_input('Enter League ID', '236821')
+    league_id = st.text_input('Enter League ID', '605567')
     data_load_state = st.text('Loading data...')
     WeekData = GetManagerPoints_league(league_id, current_event_id)
     data_load_state.text('Loading data...done! Check out the %s league' % WeekData['LeagueName'].unique()[0])
