@@ -30,14 +30,14 @@ config = {'displayModeBar': False}
 
 
 ## Get the JSON from an URL
-@st.cache_data(suppress_st_warning=True)
+@st.cache_data()
 def BSget(url):
     response = requests.get(url)
     return json.loads(response.content)
 
 
 ## Get this years gameweek data by playerID
-@st.cache_data(suppress_st_warning=True)
+@st.cache_data()
 def BSget_entry_season(entryid):
     entry = BSget("https://fantasy.premierleague.com/api/entry/%s/" % entryid)
     
@@ -67,7 +67,7 @@ def BSget_entry_season(entryid):
     return(entryseason_df)
 
 ## Run BSget_entry_season through all members of a classic league
-@st.cache_data(suppress_st_warning=True)
+@st.cache_data()
 def BSget_entry_season_league(leagueid):
     league_d = BSget('https://fantasy.premierleague.com/api/leagues-classic/%s/standings' % leagueid)
     league_entries = pd.DataFrame(league_d['standings']['results'])['entry'].unique()
