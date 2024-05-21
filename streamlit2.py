@@ -96,7 +96,7 @@ with my_expander:
 #%% Sidebar
 managers = data_season.ManagerName.unique().tolist()
 
-container = st.beta_container()
+container = st.container()
 all = st.sidebar.checkbox("Select all", True)
  
 if all:
