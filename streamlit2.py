@@ -153,7 +153,7 @@ st.plotly_chart(fig_TR,  use_container_width=True, config=config)
 st.header('Rival Watch')
 
 
-left_column, right_column = st.beta_columns(2)
+left_column, right_column = st.columns(2)
 player1 = left_column.selectbox('Manager 1:', managers, 0)
 player2 = right_column.selectbox('Manager 2:', managers, 1)
 
