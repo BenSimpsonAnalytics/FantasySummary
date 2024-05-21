@@ -75,7 +75,7 @@ def BSget_entry_season_league(leagueid):
     league_season = pd.DataFrame()
     
     for entryid in league_entries:
-        league_season = league_season.append(BSget_entry_season(entryid))
+        league_season = pd.concat([league_season, BSget_entry_season(entryid)])
         
     league_season['LeagueName'] = league_d['league']['name']
     
