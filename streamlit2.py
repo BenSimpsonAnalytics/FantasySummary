@@ -144,7 +144,7 @@ st.plotly_chart(fig_TV,  use_container_width=True, config=config)
 #%% Transfers
 st.header('Transfers')
 transfer_df = pd.melt(data_season, id_vars = ['ManagerName', 'ManagerTeamName', 'event'], value_vars=['event_transfers_cum', 'event_transfers_cost_cum'], var_name = 'metric', value_name='count')
-fig_TR = px.line(transfer_df, x="event", y='count', color='ManagerName', facet_row = 'metric', height=800, line_shape='spline')
+fig_TR = px.line(transfer_df, x="event", y='count', color='ManagerName', facet_row = 'metric', height=800)
 fig_TR.layout.yaxis2.update(matches=None)
 st.plotly_chart(fig_TR,  use_container_width=True, config=config)
 
